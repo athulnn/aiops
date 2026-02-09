@@ -33,7 +33,7 @@ Interactive Dashboard
 ## 🏗 System Architecture
 
 <p align="center">
-  <img src="images/architecture.png" width="900" />
+  <img src="img/sys_arc.png" width="900" />
 </p>
 ---
 
