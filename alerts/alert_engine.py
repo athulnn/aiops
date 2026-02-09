@@ -1,5 +1,15 @@
 import pandas as pd
 
+import os
+import sys
+
+path = "data/system_anomalies.csv"
+
+if not os.path.exists(path) or os.stat(path).st_size == 0:
+    print("⚠ No anomalies detected yet. Skipping alerts.")
+    sys.exit(0)
+
+
 df = pd.read_csv("data/system_anomalies.csv")
 
 df = df.sort_values("timestamp")

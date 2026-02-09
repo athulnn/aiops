@@ -4,6 +4,12 @@ import sys
 import os
 
 PYTHON = sys.executable
+DATA_DIR = "data"
+DASHBOARD_DIR = "dashboards"
+
+os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(DASHBOARD_DIR, exist_ok=True)
+
 
 PIPELINE_SCRIPTS = [
     "collectors/fetch_metrics.py",

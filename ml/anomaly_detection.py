@@ -2,6 +2,16 @@ import pandas as pd
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 
+
+import sys
+
+df = pd.read_csv("data/system_features_windowed.csv")
+
+if df.empty:
+    print("⚠ No data available for anomaly detection yet. Skipping.")
+    sys.exit(0)
+
+
 df = pd.read_csv("data/system_features_windowed.csv")
 
 #  Select BOTH raw + window features
