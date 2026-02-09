@@ -73,8 +73,9 @@ git clone https://github.com/athulnn/aiops.git
 cd aiops/monitoring
 docker compose up --build
 
+```
 
-🧪 Sanity Check
+## 🧪 Sanity Check
 
 After running Docker Compose:
 
@@ -83,7 +84,7 @@ docker ps
 You should see three containers running:
 
 
-📌 Notes
+## 📌 Notes
 
 Runtime-generated CSV files and images are excluded from Git.
 
@@ -93,7 +94,7 @@ The system is designed for learning, experimentation, and AIOps workflows.
 
 
 
-📈 Future Enhancements
+## 📈 Future Enhancements
 
 Prometheus alert rules
 
