@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   prometheus:
     image: prom/prometheus
@@ -16,9 +14,12 @@ services:
       - "9100:9100"
 
   ai-monitor:
-    build: ..
+    build:
+      context: ..
+      dockerfile: Dockerfile
     container_name: ai-monitor
     ports:
       - "8000:8000"
     depends_on:
-      - prometheus
+      prometheus:
+        condition: service_started
