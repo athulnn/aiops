@@ -5,9 +5,6 @@ import os
 
 PYTHON = sys.executable
 
-print("🚀 AI System Monitoring started...")
-print("🧠 Using Python:", PYTHON)
-
 PIPELINE_SCRIPTS = [
     "collectors/fetch_metrics.py",
     "preprocessing/aggregate_cpu.py",
@@ -21,8 +18,10 @@ PIPELINE_SCRIPTS = [
 
 INTERVAL_SECONDS = 60
 
-while True:
+
+def run_pipeline_once():
     print("\n⏱ Running monitoring pipeline...")
+    print("🧠 Using Python:", PYTHON)
 
     for script in PIPELINE_SCRIPTS:
         print(f"▶ Running {script}")
@@ -33,6 +32,17 @@ while True:
 
         if result.returncode != 0:
             print(f"⚠ Failed: {script}")
+        else:
+            print(f"✅ Completed: {script}")
 
-    print(f"✅ Pipeline completed. Sleeping {INTERVAL_SECONDS}s...")
-    time.sleep(INTERVAL_SECONDS)
+
+def start_monitoring():
+    print("🚀 AI System Monitoring started...")
+    while True:
+        run_pipeline_once()
+        print(f"😴 Sleeping {INTERVAL_SECONDS}s...")
+        time.sleep(INTERVAL_SECONDS)
+
+
+if __name__ == "__main__":
+    start_monitoring()
