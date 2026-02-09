@@ -83,6 +83,34 @@ docker ps
 
 You should see three containers running:
 
+## 📡 API Endpoints
+
+Base URL: http://localhost:8000
+
+GET /  
+Service status
+
+GET /health  
+Health check
+
+GET /anomalies?limit=10  
+Fetch latest detected anomalies
+
+GET /alerts  
+Fetch generated alerts
+
+GET /dashboard  
+View static PNG dashboard
+
+GET /dashboard/interactive  
+View interactive HTML dashboard
+
+Notes:
+- Monitoring runs continuously in the background
+- Data and anomalies appear after a few minutes of runtime
+- APIs are exposed via FastAPI
+
+
 
 ## 📌 Notes
 
