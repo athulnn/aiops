@@ -10,8 +10,8 @@ An AI-powered system monitoring platform that collects system metrics, engineers
 - Time-window feature engineering
 - Unsupervised anomaly detection (Isolation Forest)
 - Continuous monitoring pipeline
-- REST API (FastAPI)
-- Interactive dashboards (Plotly)
+- REST API built with FastAPI
+- Interactive dashboards using Plotly
 - Alert generation for anomalous behavior
 
 ---
@@ -30,64 +30,77 @@ Alerts + API
 ↓
 Interactive Dashboard
 
+## 🏗 System Architecture
 
-
+<p align="center">
+  <img src="images/architecture.png" width="900" />
+</p>
 ---
 
 ## 📂 Project Structure
 
 api/ → FastAPI endpoints
-collectors/ → Metrics collection
+collectors/ → Metrics collection from Prometheus
 preprocessing/ → Aggregation & time-window features
 ml/ → Anomaly detection model
-alerts/ → Alert logic
+alerts/ → Alert generation logic
 dashboards/ → Static & interactive dashboards
-runner/ → Orchestrates full pipeline
+runner/ → Orchestrates the monitoring pipeline
 data/ → Runtime-generated data (ignored in Git)
+monitoring/
+├── docker-compose.yml
+└── prometheus.yml
 
 
 
 ---
 
-## ⚙️ Setup Instructions
+## 🚀 Run Using Docker (Recommended)
 
-### 1. Clone repository
+This project is fully reproducible using Docker Compose.
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+---
+
+### Steps
+
 ```bash
 git clone https://github.com/athulnn/aiops.git
+cd AI-SYSTEM_PREDCTION/monitoring
+docker compose up --build
 
 
-python -m venv venv
-venv\Scripts\activate   # Windows
+🧪 Sanity Check
+
+After running Docker Compose:
+
+docker ps
+
+You should see three containers running:
 
 
-pip install -r requirements.txt
+📌 Notes
+
+Runtime-generated CSV files and images are excluded from Git.
+
+Prometheus communicates with services using Docker service names.
+
+The system is designed for learning, experimentation, and AIOps workflows.
 
 
-python runner/monitor.py
 
+📈 Future Enhancements
 
-python -m uvicorn api.main:app --reload
+Prometheus alert rules
 
+Grafana dashboards
 
+Multi-node monitoring
 
-🧠 Machine Learning
+Online learning models
 
-Algorithm: Isolation Forest
-
-Type: Unsupervised anomaly detection
-
-Inputs: Aggregated CPU, Memory, Disk + rolling window features
-
-Output: Binary anomaly label
-
-🔮 Future Enhancements
-
-Alert severity levels
-
-Auto-refresh dashboards
-
-Cloud deployment (Docker / Azure)
-
-Log-based anomaly detection
-
-Model retraining pipeline
+Cloud deployment (AWS / Azure)

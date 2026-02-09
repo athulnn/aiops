@@ -14,3 +14,11 @@ services:
     container_name: node_exporter
     ports:
       - "9100:9100"
+
+  ai-monitor:
+    build: ..
+    container_name: ai-monitor
+    ports:
+      - "8000:8000"
+    depends_on:
+      - prometheus

@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 import time
 
-PROM_URL = "http://localhost:9090/api/v1/query"
+PROM_URL = "http://prometheus:9090/api/v1/query"
 
 queries = {
     "cpu": "rate(node_cpu_seconds_total[1m])",
