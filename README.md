@@ -70,7 +70,7 @@ This project is fully reproducible using Docker Compose.
 
 ```bash
 git clone https://github.com/athulnn/aiops.git
-cd AI-SYSTEM_PREDCTION/monitoring
+cd aiops/monitoring
 docker compose up --build
 
 
